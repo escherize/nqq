@@ -1,0 +1,10 @@
+{
+    "name": "package-name",
+    "version": "0.0.2",
+    "author": "Bryan Maass <bryan.maass@gmail.com>",
+    "dependencies": {
+        "enquirer": "^2.3.6",
+        "nbb": "0.1.6",
+        "yargs": "^17.3.1"
+    }
+}

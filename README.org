@@ -1,0 +1,31 @@
+#+TITLE: Novel Question Queue
+
+* Novel Question Queue
+
+#+begin_src
+nqq questions out-file(optional)
+
+Ask questions from a declarative script.
+
+Arguments:
+  - questions
+    edn string representing a single or collection of maps which get processed by enquire.js as prompts.
+  - out-file (optional)
+    [optional, answers.edn by default]
+
+References for enquirer js:
+  - for the enquire.js prompt types:
+    https://github.com/enquirer/enquirer#-built-in-prompts
+  - the names of `type`s:
+    https://github.com/enquirer/enquirer/blob/8d626c206733420637660ac7c2098d7de45e8590/lib/prompts/index.js
+
+Examples:
+  1.
+    Run:
+      nqq '{:type :input :name :toy :message "Favorite toy?" :initial "top"}' && cat answers.edn
+    Then hit return and nqq will print: {:toy "top"}
+  2.
+    Run:
+      nqq '{:type :autocomplete :name :state? :message "Favorite state?" :chocies ["Ca" "Tx" "Id" "Ak" "Ny"]}' && cat answers.edn
+    Then hit return and nqq will print: {:toy "top"}
+#+end_src
