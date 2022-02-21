@@ -1,6 +1,6 @@
 #+TITLE: Novel Question Queue
 
-* Novel Question Queue
+* Usage:
 
 #+begin_src
 nqq questions out-file(optional)
@@ -26,6 +26,30 @@ Examples:
     Then hit return and nqq will print: {:toy "top"}
   2.
     Run:
-      nqq '{:type :autocomplete :name :state? :message "Favorite state?" :chocies ["Ca" "Tx" "Id" "Ak" "Ny"]}' && cat answers.edn
+      nqq '{:type :autocomplete :name :state? :message "Favorite state?" :choices ["Ca" "Tx" "Id" "Ak" "Ny"]}' && cat answers.edn
     Then hit return and nqq will print: {:toy "top"}
 #+end_src
+
+* Dev
+
+#+begin_src shell
+nbb -cp src -m nqq.core '{:type :autocomplete :name :flavor :limit 10 :initial 2 :choices ["Ca" "Tx" "Id" "Ak" "Ny"]}'
+#+end_src
+
+* Building
+
+#+begin_src shell
+
+# install depdencies
+npm install
+
+#run caxa to build
+npx caxa@2.1.0 --input . --output nqq -- \
+    "{{caxa}}/node_modules/.bin/nbb" \
+    "-cp" "{{caxa}}/src" \
+    "-m" "nqq.core"
+#+end_src
+
+* Thanks
+
+Thanks to [Michiel Borkent](https://github.com/borkdude) for [nbb](https://github.com/babashka/nbb), and the documentation about how to package a binary with it!
